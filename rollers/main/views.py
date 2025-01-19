@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DatailView
+from django.views.generic import ListView, DetailView
 from .models import ClothingItem, Category, Size
 from django.db.models import Q
 
@@ -45,10 +45,9 @@ class CatalogView(ListView):
         return context 
     
 
-class ClothingItemDetailView(DatailView):
+class ClothingItemDetailView(DetailView):
     model = ClothingItem
     template_name = 'main/product/detail.html'
     context_object_name = 'clothing_item'
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
-    
